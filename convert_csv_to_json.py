@@ -26,7 +26,7 @@ def convert_csv_to_jason(data_path):
         json_file.write(']')
 
 def main():
-    convert_csv_to_jason(data_path='E:/work/Hungln/data/')
+    convert_csv_to_jason(data_path='./data/')
     print('csv is converted!')
 
 
