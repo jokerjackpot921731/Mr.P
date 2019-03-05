@@ -3,8 +3,8 @@ import json
 import os
 
 
-def convert_csv_to_jason(data_path):
-    json_file = open(os.path.join(data_path, 'json_file.txt'), 'w+')
+def convert_csv_to_json(data_path):
+    json_file = open(os.path.join(data_path, 'json_file.json'), 'w+')
     fieldnames = ['linkProduct',
                   'note',
                   'address',
@@ -13,9 +13,10 @@ def convert_csv_to_jason(data_path):
                   'orderBy']
     with open(os.path.join(data_path, 'sheet1.csv'), 'r') as data:
         next(data, None)
-        reader = csv.DictReader(data,
-                                fieldnames=fieldnames)
+        reader = csv.DictReader(data,fieldnames=fieldnames)
         rows = list(reader)
+
+        # write file .txt
         json_file.write('[\n')
         for idx, row in enumerate(rows):
             for fieldname in fieldnames:
@@ -33,12 +34,6 @@ def convert_csv_to_jason(data_path):
 
 def main():
     convert_csv_to_jason(data_path='./data/')
-    print('csv is converted!')
-    print('='*80)
-    with open('./data/json_file.txt') as f:
-        data = json.load(f)
-    print(data)
-
 
 if __name__ == "__main__":
     main()
