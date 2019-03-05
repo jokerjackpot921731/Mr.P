@@ -38,7 +38,6 @@ def main():
     with open('./data/json_file.txt') as f:
         data = json.load(f)
     print(data)
-    return data
 
 
 if __name__ == "__main__":
