@@ -6,7 +6,7 @@
   "scripts": {
     "test": "standard --verbose | snazzy",
     "start": "babel-node --presets es2015,stage-2 ./src/app.js",
-    "watch": "nodemon ./src/app.js --exec babel-node --presets es2015,stage-2"
+    "watch": "nodemon ./src/services/UserService.js --exec babel-node --presets es2015,stage-2"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.4.11",
     "nodemon": "^1.18.10",
+    "python-shell": "^1.0.7",
     "snazzy": "^8.0.0",
     "standard": "^12.0.1"
   },

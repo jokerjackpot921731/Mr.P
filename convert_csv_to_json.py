@@ -13,7 +13,7 @@ def convert_csv_to_json(data_path):
                   'orderBy']
     with open(os.path.join(data_path, 'sheet1.csv'), 'r') as data:
         next(data, None)
-        reader = csv.DictReader(data,fieldnames=fieldnames)
+        reader = csv.DictReader(data, fieldnames=fieldnames)
         rows = list(reader)
 
         # write file .txt
@@ -33,7 +33,7 @@ def convert_csv_to_json(data_path):
         json_file.write(']')
 
 def main():
-    convert_csv_to_jason(data_path='./data/')
+    convert_csv_to_json(data_path='./data/')
 
 if __name__ == "__main__":
     main()

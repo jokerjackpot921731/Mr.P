@@ -8,4 +8,3 @@ ps.PythonShell.run('convert_csv_to_json.py', null, function (err, results) {
   var jsonContents = JSON.parse(contents);
   console.log(jsonContents);
 });
-
