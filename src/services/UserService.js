@@ -45,7 +45,7 @@ class UserService {
   }
   static async getCSV () {
     try {
-      ps.PythonShell.run('convert_csv_to_json.py', null, function (err, results) {
+      const result = await ps.PythonShell.run('convert_csv_to_json.py', null, function (err, results) {
         if (err) throw err;
         console.log('finished');
         console.log(results);

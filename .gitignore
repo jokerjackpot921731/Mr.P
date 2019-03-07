@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+dist/
+.idea/.xml
+env/LCL.env
+yarn.lock
