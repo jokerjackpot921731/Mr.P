@@ -2,7 +2,7 @@ import { jsonError, errors, jsonSuccess, logger } from "../utils/system";
 import { User } from "../models/schema/User";
 import { hashPassword } from "../utils/encryption";
 import { getID } from "../utils/commonFunctions";
-import ps from "python-shell";
+import {PythonShell} from "python-shell";
 import fs from "fs";
 
 class UserService {
@@ -45,10 +45,9 @@ class UserService {
   }
   static async getCSV () {
     try {
-      const result = await ps.PythonShell.run('convert_csv_to_json.py', null, function (err, results) {
+      PythonShell.run('convert_csv_to_json.py', null, function (err) {
         if (err) throw err;
         console.log('finished');
-        console.log(results);
         var contents = fs.readFileSync('./data/json_file.json');
         var jsonContents = JSON.parse(contents);
         console.log(jsonContents);
