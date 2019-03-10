@@ -1,18 +1,22 @@
 import csv
 import json
 import os
-# import pandas as pd
+import pandas as pd
 
-from feature_columns.custom_column_utils import _USE_CSV_COlUMNS
+from feature_columns.custom_column_utils import _USE_CSV_COLUMNS
 
-# def csv_preprocessing(data_path):
-#     data_df = pd.read_csv(os.path.join(data_path, 'sheet1.csv'), usecols=_USE_CSV_COLUMNS)
-#     data_df.to_csv(os.path.join(data_path, 'sheet1.csv'), index=False, sep=',', columns=_USE_CSV_COLUMNS)
+def preprocessing_csv(data_path):
+  data_df = pd.read_csv(data_path, usecols=_USE_CSV_COLUMNS)
+  data_df.to_csv(data_path, index=False, sep=',', columns=_USE_CSV_COLUMNS)
 
 def convert_csv_to_json(data_path):
     json_file = open(os.path.join(data_path, 'json_file.json'), 'w+')
-    fieldnames = _USE_CSV_COlUMNS
-    with open(os.path.join(data_path, 'sheet1.csv'), 'r') as data:
+    csv_path = os.path.join(data_path, 'items-Sheet1.csv')
+    fieldnames = _USE_CSV_COLUMNS
+    # processing data csv
+    preprocessing_csv(csv_path)
+    # convert to json
+    with open(csv_path, 'r') as data:
         next(data, None)
         reader = csv.DictReader(data, fieldnames=fieldnames)
         rows = list(reader)
@@ -21,6 +25,7 @@ def convert_csv_to_json(data_path):
         json_file.write('[\n')
         for idx, row in enumerate(rows):
             for fieldname in fieldnames:
+                print(fieldname)
                 row[fieldname] = row[fieldname].\
                     replace('\"\"', '').\
                     replace('\"', '').\

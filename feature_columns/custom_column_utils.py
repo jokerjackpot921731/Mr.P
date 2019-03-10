@@ -1,8 +1,11 @@
-_USE_CSV_COlUMNS = [
+_USE_CSV_COLUMNS = [
     'linkProduct',
     'note',
     'address',
-    'paid',
+    'trackingNum',
+    'name',
+    'Time delivery',
+    'PAID',
     'costSite',
     'orderBy'
 ]
