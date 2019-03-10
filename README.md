@@ -8,5 +8,5 @@ A framwork server nodejs
 - Enable to add database migration when using SQL
 
 Run build:
-
+- npm install python-shell
 - npm start
