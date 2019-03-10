@@ -6,3 +6,4 @@ dist/
 .iml
 env/LCL.env
 yarn.lock
+config/

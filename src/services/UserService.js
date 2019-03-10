@@ -3,7 +3,7 @@ import { User } from "../models/schema/User";
 import { hashPassword } from "../utils/encryption";
 import { getID } from "../utils/commonFunctions";
 import {PythonShell} from "python-shell";
-import fs from "fs";
+import {fs} from "fs";
 
 class UserService {
   static async boot () {
@@ -45,10 +45,11 @@ class UserService {
   }
   static async getCSV () {
     try {
-      PythonShell.run('convert_csv_to_json.py', null, function (err) {
+      PythonShell.run('convert_csv_to_json.py', null, function (err, results) {
         if (err) throw err;
         console.log('finished');
-        var contents = fs.readFileSync('./data/json_file.json');
+        console.log(results)
+        var contents = fs.readFileSync('./data/json/json_file.json');
         var jsonContents = JSON.parse(contents);
         console.log(jsonContents);
       });
