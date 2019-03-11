@@ -1,9 +1,0 @@
-name: Server-Framework
-
-version: 1.0.0
-
-data_path:
-  root: data
-  raw: items-Sheet1.csv
-  processed: processed/cleaned_sheet.csv
-  json_file: json/json_file.json

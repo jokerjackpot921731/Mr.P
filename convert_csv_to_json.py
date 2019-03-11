@@ -1,7 +1,7 @@
 import csv
 import json
 import os
-import pandas as pd
+import pandas as pd 
 
 from feature_columns.custom_column_utils import _USE_CSV_COLUMNS
 
@@ -44,6 +44,7 @@ def convert_csv_to_json(data_path):
 
 def main():
     convert_csv_to_json(data_path='./data/')
+    print("Json file is already.")
 
 if __name__ == "__main__":
     main()
