@@ -48,7 +48,7 @@ class UserService {
       PythonShell.run('convert_csv_to_json.py', null, function (err) {
         if (err) throw err;
         console.log('finished');
-        var contents = fs.readFileSync('./data/json/json_file.json');
+        var contents = fs.readFileSync('./data/json/json_file.txt','utf8');
         var jsonContents = JSON.parse(contents);
         console.log(jsonContents);
       });

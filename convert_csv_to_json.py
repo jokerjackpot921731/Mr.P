@@ -10,9 +10,9 @@ def preprocessing_csv(raw_data_path, cleaned_data_path):
   data_df.to_csv(cleaned_data_path, index=False, sep=',', columns=_USE_CSV_COLUMNS)
 
 def convert_csv_to_json(data_path):
-    json_path = os.path.join(data_path, 'json_file.json')
+    json_path = os.path.join(data_path, 'json/json_file.txt')
     raw_data_path = os.path.join(data_path, 'items-Sheet1.csv')
-    cleaned_data_path = os.path.join(data_path, 'cleaned_sheet.csv')
+    cleaned_data_path = os.path.join(data_path, 'processed/cleaned_sheet.csv')
 
     json_file = open(json_path, 'w+')
     fieldnames = _USE_CSV_COLUMNS
@@ -21,7 +21,7 @@ def convert_csv_to_json(data_path):
     preprocessing_csv(raw_data_path, cleaned_data_path)
 
     # convert to json
-    with open(cleaned_data_path, 'r') as data:
+    with open(raw_data_path, 'r') as data:
         next(data, None)
         reader = csv.DictReader(data, fieldnames=fieldnames)
         rows = list(reader)
