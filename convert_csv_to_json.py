@@ -1,13 +1,19 @@
 import csv
 import json
 import os
-import pandas as pd 
+import pandas as pd
 
 from feature_columns.custom_column_utils import _USE_CSV_COLUMNS
 
+
 def preprocessing_csv(raw_data_path, cleaned_data_path):
-  data_df = pd.read_csv(raw_data_path, usecols=_USE_CSV_COLUMNS)
-  data_df.to_csv(cleaned_data_path, index=False, sep=',', columns=_USE_CSV_COLUMNS)
+    data_df = pd.read_csv(raw_data_path, usecols=_USE_CSV_COLUMNS)
+    data_df.to_csv(
+        cleaned_data_path,
+        index=False,
+        sep=',',
+        columns=_USE_CSV_COLUMNS)
+
 
 def convert_csv_to_json(data_path):
     json_path = os.path.join(data_path, 'json/json_file.txt')
@@ -42,9 +48,11 @@ def convert_csv_to_json(data_path):
                 json_file.write('\n')
         json_file.write(']')
 
+
 def main():
     convert_csv_to_json(data_path='./data/')
     print("Json file is already.")
+
 
 if __name__ == "__main__":
     main()
