@@ -45,12 +45,20 @@ class UserService {
   }
   static async getCSV () {
     try {
-      PythonShell.run('convert_csv_to_json.py', null, function (err) {
+      PythonShell.run('convert_csv_to_json.py', null, function (err, result) {
         if (err) throw err;
-        console.log('finished');
-        var contents = fs.readFileSync('./data/json/json_file.txt','utf8');
-        var jsonContents = JSON.parse(contents);
-        console.log(jsonContents);
+        console.log('finished')
+        console.log(result)
+        var path = './data/json/json_file.txt';
+        if (fs.existsSync(path)){
+          var contents = fs.readFileSync(path,'utf8');
+          var jsonContents = JSON.parse(contents);
+          console.log(jsonContents);
+        }
+        else{
+          console.log('Create error',errors.JSON_ERROR)
+          return jsonError(errors.JSON_ERROR)
+        }
       });
     } catch (error) {
       console.log('Create error', error)

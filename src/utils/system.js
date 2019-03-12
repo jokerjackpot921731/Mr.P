@@ -13,6 +13,7 @@ const errors = {
   'EXIT_ERROR': { code: 'EXIT_ERROR' },
   'LISTEN_ERROR': { code: 'LISTEN_ERROR' },
   'SERVICE_BOOT_FAILED': { code: 'SERVICE_BOOT_FAILED' },
+  'JSON_ERROR': {code: 'JSON_FILE_UNAVAILABLE'},
 
   // -- user-defined errors
   'ACCESS_CONDITION_FAILED': { code: 'ACCESS_CONDITION_FAILED' },
