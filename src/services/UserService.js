@@ -49,11 +49,14 @@ class UserService {
         if (err) throw err;
         console.log('finished')
         console.log(result)
-        var path = './data/json/json_file.txt';
+        var path = './data/json/json_file.txt'
         if (fs.existsSync(path)){
-          var contents = fs.readFileSync(path,'utf8');
-          var jsonContents = JSON.parse(contents);
-          console.log(jsonContents);
+          var contents = fs.readFileSync(path,'utf8')
+          if (contents == null){
+            return jsonError(errors.JSON_ERROR)
+          }
+          var jsonContents = JSON.parse(contents)
+          console.log(jsonContents)
         }
         else{
           console.log('Create error',errors.JSON_ERROR)
