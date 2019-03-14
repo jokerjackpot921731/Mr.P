@@ -45,7 +45,7 @@ class UserService {
   }
   static async getCSV () {
     try {
-      PythonShell.run('./src/handle_csv/convert_csv_to_json.py', null, function (err, result) {
+      PythonShell.run('./src/convert_csv_to_json.py', null, function (err, result) {
         if (err) throw err;
         console.log('finished')
         console.log(result)

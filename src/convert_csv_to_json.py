@@ -3,16 +3,16 @@ import json
 import os
 import pandas as pd
 
-from feature_columns.custom_column_utils import _USE_CSV_COLUMNS
+from feature_columns import custom_column_utils
 
 
 def preprocessing_csv(raw_data_path, cleaned_data_path):
-    data_df = pd.read_csv(raw_data_path, usecols=_USE_CSV_COLUMNS)
+    data_df = pd.read_csv(raw_data_path, usecols=custom_column_utils._USE_CSV_COLUMNS)
     data_df.to_csv(
         cleaned_data_path,
         index=False,
         sep=',',
-        columns=_USE_CSV_COLUMNS)
+        columns=custom_column_utils._USE_CSV_COLUMNS)
 
 
 def convert_csv_to_json(data_path):
@@ -21,13 +21,13 @@ def convert_csv_to_json(data_path):
     cleaned_data_path = os.path.join(data_path, 'processed/cleaned_sheet.csv')
 
     json_file = open(json_path, 'w+')
-    fieldnames = _USE_CSV_COLUMNS
+    fieldnames = custom_column_utils._USE_CSV_COLUMNS
 
     # processing data csv
     try:
         preprocessing_csv(raw_data_path, cleaned_data_path)
     except Exception as e:
-        print("There are no raw data", e)
+        print("Could not clean raw data", e)
         return None
 
     # convert to json
