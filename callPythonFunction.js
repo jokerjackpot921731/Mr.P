@@ -1,6 +1,6 @@
 const ps = require('python-shell');
 const fs = require('fs');
-ps.PythonShell.run('convert_csv_to_json.py', null, function (err, results) {
+ps.PythonShell.run('./src/handle_csv/convert_csv_to_json.py', null, function (err, results) {
   if (err) throw err;
   console.log('finished');
   console.log(results);
