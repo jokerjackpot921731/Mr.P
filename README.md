@@ -8,13 +8,10 @@ A framwork server nodejs
 - Enable to add database migration when using SQL
 
 Prepair to run for Ubuntu
-- sudo apt update
-- sudo apt install python-pip
-- pip install virtualenv
-- virtualenv -p python2.7 venv
-- source venv/bin/activate
-- pip install -r requirement.txt
-- npm install python-shell --save
+$ sudo apt update
+$ sudo apt install python3-pip
+$ pip3 install -r requirement.txt
+$ npm install python-shell --save
 Run build:
 - npm start
 
